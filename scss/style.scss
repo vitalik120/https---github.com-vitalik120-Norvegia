@@ -1,0 +1,125 @@
+$main-font: 'Inter', sans-serif;
+$opacity-color: rgba(100, 100, 100, 0.5);
+$hover-color: lightgray;
+
+@mixin linkStyle($family, $color, $size, $textDec, $weight) {
+    font-family: $family;
+    color: $color;
+    font-size: $size;
+    text-decoration: $textDec;
+    font-weight: $weight;
+}
+
+body {
+    font-family: $main-font;
+    color: white;
+    margin: 0;
+}
+
+.home-page {
+    margin-top: 0;
+    height: 100vh;
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo {
+    a {
+        @include linkStyle($main-font, white, 20px, none, 900);
+        text-transform: uppercase;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    .menu {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin-right: 100px;
+        margin-left: 500px;
+
+        li{
+            margin-right: 80px;
+            margin-left: 100px;
+
+            &:last-child{
+                margin-right: 0;
+            }
+
+            a{
+                @include linkStyle($main-font, white, 18px, none, 400px);
+                
+                &:hover{
+                    color: $hover-color;
+                }
+            }
+        }   
+    }
+}
+.extra-menu{
+    background-color: $opacity-color;
+    padding: 5px;
+    height: 40px;
+    width: 40px;
+    margin-left: 500px;
+    border-radius: 5px;
+}
+.home-page-main{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin-top: 130px;
+    padding-left: 20px;
+    align-items: center;
+    
+    .socials{
+        display: grid;
+        grid-template-rows: 50px 50px 50px;
+        row-gap: 20px;
+        justify-items: center;
+    }
+}
+.home-page-title{
+    text-align: center;
+    line-height: 5px;
+    padding-right: 50px;
+    
+    h2{
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 20px;
+    }
+
+    h1{
+        font-size: 150px;
+        letter-spacing: 20px;
+    }
+}
+.home-page-footer{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding-left: 20px;
+    margin-top: 110px;
+
+    .footer-places{
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+        column-gap: 50px;
+        justify-content: center;
+        padding-right: -80px;
+    }
+
+    .arrow{
+        align-self: end;
+    }
+}
+.footer-place-item{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    border-radius: 15px;
+    width: auto;
+    background: gray;
+    align-self: center;
+}
